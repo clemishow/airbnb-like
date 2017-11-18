@@ -18,3 +18,11 @@
    margin-bottom: 30px;
    margin-top: 30px;
  }
+
+ [type="checkbox"]:not(:checked),
+ [type="checkbox"]:checked {
+   position: relative;
+   opacity: 1;
+   margin-right: 15px;
+   pointer-events: auto;
+ }
