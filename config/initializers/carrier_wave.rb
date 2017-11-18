@@ -6,7 +6,8 @@ CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:              'AWS',                   
     aws_access_key_id:     'AKIAJ4MCHDLTVTSOCSBQ',                   
-    aws_secret_access_key: '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',                   
+    aws_secret_access_key: 'GND3D8xCr4vIpE7EzIvyzkzB5Gi90nSlAtdFAD3C',
+    region:                'eu-central-1'
   }
   config.fog_directory  = 'airbnb-like-pg'                     
 end
