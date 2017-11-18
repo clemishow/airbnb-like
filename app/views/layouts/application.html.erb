@@ -13,18 +13,34 @@
 
   <body>
     <div class="navbar-fixed">
-    <ul id="dropdown1" class="dropdown-content">
+
+    <ul id="user_submenu" class="dropdown-content">
       <li><%= link_to 'Profile', edit_user_registration_path %></li>
       <li class="divider"></li>
       <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+    </ul>
+
+    <ul id="admin_submenu" class="dropdown-content">
+      <li><%= link_to 'Profile', edit_admin_registration_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Log out', destroy_admin_session_path, method: :delete %></li>
     </ul>
       <nav>
         <div class="nav-wrapper">
           <%= link_to "AirbnbLike", home_path, {:class => "brand-logo"} %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if admin_signed_in? %>
+              <li>
+                <a class="dropdown-button" href="#!" data-activates="admin_submenu">
+                  Admin
+                  <i class="material-icons right">arrow_drop_down</i>
+                </a>
+              </li>
+              <li> <%= link_to 'Users', users_path %> </li>
+            <% end %>
             <% if user_signed_in? %>
               <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                <a class="dropdown-button" href="#!" data-activates="user_submenu">
                   <% if current_user.firstname && current_user.lastname %>
                     <%= current_user.firstname %> <%= current_user.lastname %>
                   <% else %>
