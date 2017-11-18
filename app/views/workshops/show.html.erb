@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @workshop.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workshop.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @workshop.address %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @workshop.grade %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @workshop.price %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <% @workshop.images.each do |image| %>
+    <% if image %>
+      <%= image_tag(image, :class => "responsive-img") %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_workshop_path(@workshop), :class => "btn" %>
