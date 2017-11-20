@@ -44,9 +44,14 @@
         <%= image_tag(image.thumb) %>
       </div>
     <% end %>
-    <div>
-      <%= form.label :images %>
-      <%= form.file_field :images, multiple: true %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <%= form.file_field :images, multiple: true %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
     </div>
   </div>
   <br>

@@ -8,4 +8,7 @@ class Users::WorkshopsController < WorkshopsController
 
   def update
   end
+
+  def create
+  end
 end

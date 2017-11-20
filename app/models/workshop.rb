@@ -4,9 +4,10 @@ class Workshop < ApplicationRecord
 
    belongs_to :user
 
-#   validates :title,
-#         presence: true,
-#         length: { minimum: 5, too_short: "%{count} characters is the minium"}
+  validates :title,
+        presence: true,
+        length: { minimum: 5, too_short: "%{count} characters is the minium"},
+        length: { maximum: 60, too_long: "%{count} characters is the maximum"}
 
   # validates :description,
   #           presence: true

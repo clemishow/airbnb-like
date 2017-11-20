@@ -1,3 +1,55 @@
 <h1>New Workshop</h1>
 
-<%= render 'form', workshop: @workshop %>
+<%= form_with(model: @workshop, local: true) do |form| %>
+  <% if @workshop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+
+      <ul>
+      <% @workshop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :workshop_title, "data-length" => "60" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :workshop_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :workshop_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grade %>
+    <%= form.text_field :grade, id: :workshop_grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :workshop_price %>
+  </div>
+
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <%= form.file_field :images, multiple: true %>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit({:class => "btn"}) %>
+  </div>
+<% end %>
+

@@ -35,7 +35,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <%= form_tag(search_index_path, method: :get) do %>
-                <%= text_field_tag :keyword, params[:keyword] %>
+                <%= text_field_tag :keyword, params[:keyword], :placeholder => "Rechercher un atelier" %>
               <% end %>
             </li>
             <% if admin_signed_in? %>

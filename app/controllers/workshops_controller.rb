@@ -33,7 +33,7 @@ class WorkshopsController < ApplicationController
         format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }
         format.json { render :show, status: :created, location: @workshop }
       else
-        format.html { render :new }
+        format.html { render new_users_workshop_path }
         format.json { render json: @workshop.errors, status: :unprocessable_entity }
       end
     end
