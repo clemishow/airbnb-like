@@ -16,9 +16,13 @@ Ruby | 2.3.3+
 Rails | 5.1.4+
 PostreSQL | 10.1+
 
+## To do 
+
+* Prevent search when there is no keywork and handle no result search
+
 ## Problems 
 
-* `routes.rb` > 
+* `routes.rb` :
 ```ruby 
 # Getting a error on users/workshops/new submit : No route matches [POST] "/workshops"
 resources :workshops, only: [:show, :index] 

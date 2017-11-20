@@ -3,6 +3,7 @@ class Workshop < ApplicationRecord
    validate :images_limit_number, :images_size_validation
 
    belongs_to :user
+   has_many :books, dependent: :destroy
 
   validates :title,
         presence: true,

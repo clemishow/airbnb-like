@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :workshops
 
+  namespace :workshops do
+    get ':workshop_id/books/new', to: 'books#new', as: 'book'
+  end
+
   scope module: 'workshops' do 
     resources :search, only: [:index], controller: 'search'
   end

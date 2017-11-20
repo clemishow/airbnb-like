@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
   
   has_many :workshops
+  has_many :books
+
+  def book(workshop)
+    books.find_or_create_by(workshop: workshop)
+  end
 end
