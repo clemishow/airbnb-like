@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
-$(".dropdown-button").dropdown();
+$(document).ready(function () {
+  $('.dropdown-trigger').dropdown();
+});

@@ -16,3 +16,15 @@ Ruby | 2.3.3+
 Rails | 5.1.4+
 PostreSQL | 10.1+
 
+## Problems 
+
+* `routes.rb` > 
+```ruby 
+# Getting a error on users/workshops/new submit : No route matches [POST] "/workshops"
+resources :workshops, only: [:show, :index] 
+
+# forced to put a scope module instead of a namespace because there is an error when running workshops_controller.rb
+scope module: 'workshops' do 
+  resources :search, only: [:index], controller: 'search'
+end
+```

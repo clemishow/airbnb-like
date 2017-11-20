@@ -1,0 +1,2 @@
+module SearchWorkshopsHelper
+end
