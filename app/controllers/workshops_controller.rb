@@ -27,7 +27,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
-    @workshop = Workshop.new(workshop_params)
+    @workshop = current_user.workshops.new(workshop_params)
 
     respond_to do |format|
       if @workshop.save

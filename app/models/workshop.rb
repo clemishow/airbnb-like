@@ -2,6 +2,8 @@ class Workshop < ApplicationRecord
    mount_uploaders :images, WorkshopGalleryUploader
    validate :images_limit_number, :images_size_validation
 
+   belongs_to :user
+
 #   validates :title,
 #         presence: true,
 #         length: { minimum: 5, too_short: "%{count} characters is the minium"}

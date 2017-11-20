@@ -14,12 +14,16 @@
   <body>
     <div class="navbar-fixed">
 
+    <%# User dropdown %>
     <ul id="user_submenu" class="dropdown-content">
       <li><%= link_to 'Profile', edit_user_registration_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'My workshops', users_workshops_path(current_user) %></li>
       <li class="divider"></li>
       <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
     </ul>
 
+    <%# Admin dropdown %>
     <ul id="admin_submenu" class="dropdown-content">
       <li><%= link_to 'Profile', edit_admin_registration_path %></li>
       <li class="divider"></li>
@@ -36,7 +40,7 @@
                   <i class="material-icons right">arrow_drop_down</i>
                 </a>
               </li>
-              <li> <%= link_to 'Users', users_path %> </li>
+              <li> <%= link_to 'Users', admin_users_path %> </li>
             <% end %>
             <% if user_signed_in? %>
               <li>
@@ -50,8 +54,10 @@
                 </a>
               </li>
             <% else %>
-              <li><%= link_to 'Log in', new_user_session_path %></li>
-              <li><%= link_to 'Sign in', new_user_registration_path %></li>
+              <% if admin_signed_in?.blank? %>
+                <li><%= link_to 'Log in', new_user_session_path %></li>
+                <li><%= link_to 'Sign in', new_user_registration_path %></li>
+              <% end %>
             <% end %>
           </ul>
         </div>
