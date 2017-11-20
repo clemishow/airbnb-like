@@ -1,4 +1,4 @@
-<%= form_with(model: workshop, local: true) do |form| %>
+<%= form_for(@workshop, local: true) do |form| %>
   <% if workshop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>

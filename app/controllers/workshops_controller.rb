@@ -1,6 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :set_workshop, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :destroy, :edit]
+  before_action :set_workshop, only: [:show]
 
   # GET /workshops
   # GET /workshops.json
@@ -20,8 +19,8 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.new
   end
 
-  # GET /workshops/1/edit
-  def edit
+  def edit 
+    @workshop = Workshop.find(params[:id])
   end
 
   # POST /workshops
@@ -43,6 +42,8 @@ class WorkshopsController < ApplicationController
   # PATCH/PUT /workshops/1
   # PATCH/PUT /workshops/1.json
   def update
+    @workshop = Workshop.find(params[:id])
+    
     respond_to do |format|
       if @workshop.update(workshop_params)
         format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
@@ -57,20 +58,21 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
+    @workshop = Workshop.find(params[:id])
     @workshop.destroy
     respond_to do |format|
-      format.html { redirect_to workshops_url, notice: 'Workshop was successfully destroyed.' }
+      format.html { redirect_to users_workshops_url, notice: 'Workshop was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  #   # Use callbacks to share common setup or constraints between actions.
     def set_workshop
       @workshop = Workshop.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  #   # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
       params.require(:workshop).permit(:title, :description, :address, :grade, :price, {images: []})
     end
