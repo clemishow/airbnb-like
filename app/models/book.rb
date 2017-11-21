@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-   belongs_to :workshop, counter_cache: true
    belongs_to :user
+   has_many :workshops, counter_cache: true
 end

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   namespace :workshops do
     get ':workshop_id/books/new', to: 'books#new', as: 'book'
+    get 'books', to: 'book#index'
+    post ':workshop_id/books/new', to: 'books#create'
   end
 
   scope module: 'workshops' do 
