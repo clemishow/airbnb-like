@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :workshops
 
   namespace :workshops do
-    get ':workshop_id/books/new', to: 'books#new', as: 'book'
-    get 'books', to: 'book#index'
-    post ':workshop_id/books/new', to: 'books#create'
+    get ':workshop_id/books/new' => 'books#new', as: 'new_book'
+    get 'books/all' => 'books#index'
+    get 'book/:id' => 'books#show', as: 'show_book'
+    post ':workshop_id/books/new' => 'books#create'
   end
 
   scope module: 'workshops' do 

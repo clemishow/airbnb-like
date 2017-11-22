@@ -38,5 +38,5 @@
   <% if @workshop.user_id === current_user.id %>
     <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
   <% end %>
-  <%= link_to 'Book', workshops_book_path(@workshop.id), :class => "btn" %>
+  <%= link_to 'Book', workshops_books_all_path(@workshop), :class => "btn" %>
 <% end %>

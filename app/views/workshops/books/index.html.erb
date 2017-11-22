@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start date</th>
+      <th>End date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= link_to book.title, workshops_show_book_path(book) %></td>
+        <td><%= book.start_date %></td>
+        <td><%= book.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
