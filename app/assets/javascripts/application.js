@@ -21,10 +21,13 @@ $(document).on('turbolinks:load', function () {
     timePicker: true,
     timePickerIncrement: 240,
     timePicker24Hour: true,
+    minDate: moment().format('L'),
     locale: {
       format: 'MM/DD/YYYY h'
     }
   });
+
+  $('.daterange').val('');
 
   $('.daterange').on('apply.daterangepicker', (ev, picker) => {
     $('.start__date').val(picker.startDate.format('DD-MM-YYYY'));

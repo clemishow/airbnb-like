@@ -27,9 +27,11 @@ PostreSQL | 10.1+
 * `routes.rb` :
 ```ruby 
 # Getting a error on users/workshops/new submit : No route matches [POST] "/workshops"
+# fixed ?
 resources :workshops, only: [:show, :index] 
 
 # forced to put a scope module instead of a namespace because there is an error when running workshops_controller.rb
+# fixed ?
 scope module: 'workshops' do 
   resources :search, only: [:index], controller: 'search'
 end

@@ -3,7 +3,7 @@ class Workshops::BooksController < BooksController
   before_action :authenticate_user!
 
   def index
-    select = 'workshops.title, books.id, books.start_date, books.end_date'
+    select = 'workshops.title, workshops.price, books.id, books.start_date, books.end_date'
     @books = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).all
     
     puts @books.inspect

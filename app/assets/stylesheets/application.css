@@ -38,3 +38,8 @@
  .daterangepicker {
    background: #2c3e50;
  }
+
+ .daterangepicker td.disabled,
+ .daterangepicker option.disabled {
+   text-decoration: none;
+ }
