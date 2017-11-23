@@ -1,5 +1,5 @@
 class Workshops::BooksController < BooksController 
-  before_action :find_workshop!, only: [:new]
+  before_action :find_workshop!, only: [:new, :create]
   before_action :authenticate_user!
 
   def index
@@ -20,7 +20,8 @@ class Workshops::BooksController < BooksController
   end 
 
   def create
-    @book = current_user.books.new(book_params)
+    total_price = (params[:start_date].to_i - params[:end_date].to_i) * @workshop.price
+    @book = current_user.books.new(book_params.merge(total_price: total_price))
     puts "Book : " + @book.inspect
     if @book.save
       redirect_to :workshops_books_all
@@ -31,7 +32,7 @@ class Workshops::BooksController < BooksController
 
   private 
     def find_workshop!
-      @workshop = Workshop.where(id: params[:workshop_id])
+      @workshop = Workshop.where(id: params[:workshop_id]).first
       puts "Find workshop : " + @workshop.inspect
     end
 
