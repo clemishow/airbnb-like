@@ -10,6 +10,8 @@
     <%= form.hidden_field :start_date, :class => "end__date" %>
   </div>
 
+  <%= content_tag :div, @dates, class: "hidden", id: "books_data"%>
+
   <label>Choose a date range</label>
   <input type="text" class="daterange" value=""/>
 

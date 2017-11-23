@@ -25,22 +25,55 @@ $(document).on('turbolinks:load', () => {
   /**
   * Date ranger picker 
   */ 
-  $('.daterange').daterangepicker({
-    timePicker: true,
-    timePickerIncrement: 240,
-    timePicker24Hour: true,
-    minDate: moment().format('L'),
-    locale: {
-      format: 'MM/DD/YYYY h'
+  function dateRange() {
+    var bookStart = moment().add(3, 'days'),
+      bookEnd = moment().add(10, 'days');
+
+    if ($('#books_data').length) {
+      var booksDate = JSON.parse($('#books_data').text());
     }
-  });
 
-  $('.daterange').val('');
+    function _blockRange(date) {
+      // $.each(booksDate, (key, value) => {
+        if (date.isAfter('23-11-2017') && date.isBefore('30-11-2017')) 
+          return true;
+        
+      // });
 
-  $('.daterange').on('apply.daterangepicker', (ev, picker) => {
-    $('.start__date').val(picker.startDate.format('DD-MM-YYYY'));
-    $('.end__date').val(picker.endDate.format('DD-MM-YYYY'));
-  });
+      return false;
+    }
+    
+    console.log('booksDate', booksDate);
+    console.log(moment('2017-11-23T00:00:00.000Z'));
+
+    $('.daterange').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 240,
+      timePicker24Hour: true,
+      isInvalidDate: (date) => {
+        if (date.isAfter(moment('23-11-2017')) && date.isBefore(moment('30-11-2017')))
+          return true;
+
+        return false;
+      },
+      minDate: moment().format('L'),
+      locale: {
+        format: 'MM/DD/YYYY h'
+      }
+    });
+
+    $('.daterange').val('');
+
+    $('.daterange').on('apply.daterangepicker', (ev, picker) => {
+      $('.start__date').val(picker.startDate.format('DD-MM-YYYY'));
+      $('.end__date').val(picker.endDate.format('DD-MM-YYYY'));
+    });
+  }
+
+  if ($('.daterange').length) {
+    dateRange();
+  }
+  
 
   /**
   * Google Autocomplete 
@@ -54,6 +87,7 @@ $(document).on('turbolinks:load', () => {
 
     autocomplete.addListener('place_changed', () => {
       let place = autocomplete.getPlace();
+      console.log(autocomplete.getPlace());
       $('.lat').val(place.geometry.viewport.f.f);
       $('.lng').val(place.geometry.viewport.b.b);
     });
@@ -82,9 +116,8 @@ $(document).on('turbolinks:load', () => {
       map: map,
     });
   } 
-  console.log($('#lat'));
+
   if ($('#lat').length && $('#lng').length) {
-    console.log('there is lat and lng');
     initMap();
   }
 });

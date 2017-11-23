@@ -16,6 +16,11 @@ class Workshops::BooksController < BooksController
   end
 
   def new 
+    Book.where(workshop_id: @workshop.id).find_each do |book|
+      @dates ||= []
+      @dates.push({start: book.end_date, end: book.start_date})
+    end 
+    @dates = @dates.to_json
   end 
 
   def create
