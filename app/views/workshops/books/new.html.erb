@@ -1,0 +1,20 @@
+<h1>Book an workshop</h1>
+
+<%= form_with(model: @book, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.hidden_field :end_date, :class => "start__date" %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :start_date, :class => "end__date" %>
+  </div>
+
+  <label>Choose a date range</label>
+  <input type="text" class="daterange" value=""/>
+
+  <div class="actions">
+    <%= form.submit({:class => "btn"}) %>
+  </div>
+<% end %>
+
