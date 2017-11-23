@@ -34,3 +34,21 @@ scope module: 'workshops' do
   resources :search, only: [:index], controller: 'search'
 end
 ```
+
+## Features 
+
+#### GLOBAL
+* Register an account with a confirmation mail
+* AWS S3 Bucket for images uploaded 
+
+#### USERS
+* Register / login 
+* Book an workshop
+* Create an workshop 
+* See your books 
+* Search an workshop by title
+* See yours rent workshops 
+
+#### ADMIN
+* Log in admin space
+* Retrive all users and show detail + delete if necessary 

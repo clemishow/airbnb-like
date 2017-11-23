@@ -24,7 +24,7 @@ class Workshops::BooksController < BooksController
     if @book.save
       redirect_to :workshops_books
     else 
-      render :show
+      redirect_to :workshops_new_book
     end
   end 
 
