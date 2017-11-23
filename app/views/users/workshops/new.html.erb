@@ -25,13 +25,19 @@
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :workshop_address %>
+    <%= form.text_field :address, id: :workshop_address, class: "address" %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price, id: :workshop_price %>
   </div>
+
+   <div class="field">
+    <%= form.hidden_field :lat, class: "lat" %>
+    <%= form.hidden_field :lng, class: "lng" %>
+  </div>
+
 
   <div class="file-field input-field">
     <div class="btn">
@@ -44,7 +50,7 @@
   </div>
   <br>
   <div class="actions">
-    <%= form.submit({:class => "btn"}) %>
+    <%= form.submit({class: "btn"}) %>
   </div>
 <% end %>
 

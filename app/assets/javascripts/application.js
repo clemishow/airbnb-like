@@ -13,10 +13,18 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-$(document).on('turbolinks:load', function () {
+
+
+$(document).on('turbolinks:load', () => {
+  /**
+  * Dropdown
+  */
   $('.dropdown-button1').dropdown();
   $('.dropdown-button2').dropdown();
 
+  /**
+  * Date ranger picker 
+  */ 
   $('.daterange').daterangepicker({
     timePicker: true,
     timePickerIncrement: 240,
@@ -32,5 +40,20 @@ $(document).on('turbolinks:load', function () {
   $('.daterange').on('apply.daterangepicker', (ev, picker) => {
     $('.start__date').val(picker.startDate.format('DD-MM-YYYY'));
     $('.end__date').val(picker.endDate.format('DD-MM-YYYY'));
+  });
+
+  /**
+  * Google Autocomplete 
+  */
+  let options = {
+    componentRestrictions: { country: "fr" }
+  };
+  let input = $('.address')[0];
+  let autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  autocomplete.addListener('place_changed', () => {
+    let place = autocomplete.getPlace();
+    $('.lat').val(place.geometry.viewport.b.b);
+    $('.lng').val(place.geometry.viewport.f.f);
   });
 });
