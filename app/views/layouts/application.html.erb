@@ -24,7 +24,7 @@
       <li class="divider"></li>
       <li><%= link_to 'My workshops', users_workshops_path %></li>
       <li class="divider"></li>
-      <li><%= link_to 'My books (' + Book.select('*').joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).all.count.to_s + ')', workshops_books_all_path %></li>
+      <li><%= link_to 'My books', workshops_books_all_path %></li>
       <li class="divider"></li>
       <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
     </ul>
