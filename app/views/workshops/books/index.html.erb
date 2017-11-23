@@ -20,7 +20,7 @@
         <td><%= book.start_date %></td>
         <td><%= book.end_date %></td>
         <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
-        <td><%= (((book.start_date - book.end_date).to_i / 86400) * book.price).to_s + ' €' %></td>
+        <td><%= book.total_price.to_s + ' €' %></td>
       </tr>
     <% end %>
   </tbody>
