@@ -26,3 +26,15 @@
    margin-right: 15px;
    pointer-events: auto;
  }
+
+ select {
+   display: inline-block;
+ }
+
+ .dropdown-menu {
+   display: none;
+ }
+
+ .daterangepicker {
+   background: #2c3e50;
+ }

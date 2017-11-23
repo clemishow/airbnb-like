@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   resources :workshops
 
-  scope module: 'workshops' do 
-    resources :search, only: [:index], controller: 'search'
+  namespace :workshops do
+    get ':workshop_id/books/new' => 'books#new', as: 'new_book'
+    get 'books/all' => 'books#index'
+    get 'book/:id' => 'books#show', as: 'show_book'
+    post ':workshop_id/books/new' => 'books#create'
+    get 'search/results' => 'search#index'
   end
 
   namespace :admin do 

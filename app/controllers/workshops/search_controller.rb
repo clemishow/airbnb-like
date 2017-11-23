@@ -1,9 +1,17 @@
 class Workshops::SearchController < SearchController
 
   def index
-    @keyword = params[:keyword]
+    if params[:keyword].empty?
+      redirect_to :workshops
+    else 
+      @keyword = params[:keyword]
+    end
+
     @workshops = Workshop.where("title like ?", "%#{@keyword}%").limit(100)
-    puts @workshops.inspect
+
+    if @workshops.empty? 
+      @no_results = 'There is no results for your query'
+    end
   end
 
 end

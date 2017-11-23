@@ -3,21 +3,22 @@ class Workshop < ApplicationRecord
    validate :images_limit_number, :images_size_validation
 
    belongs_to :user
+   has_many :books, dependent: :destroy
 
   validates :title,
         presence: true,
         length: { minimum: 5, too_short: "%{count} characters is the minium"},
         length: { maximum: 60, too_long: "%{count} characters is the maximum"}
 
-  # validates :description,
-  #           presence: true
+  validates :description,
+            presence: true
 
-#   validates :address,
-#             presence: true
+  validates :address,
+            presence: true
 
-#   validates :price,
-#             presence: true,
-#             numericality: { greater_than_or_equal_to: 1 }
+  validates :price,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 1 }
 
   # Limit size of the image
   private def images_size_validation
