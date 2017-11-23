@@ -14,6 +14,7 @@
 !/tmp/.keep
 
 /public/uploads/
+/public/assets/
 
 /node_modules
 /yarn-error.log
