@@ -9,10 +9,7 @@ Rails.application.routes.draw do
     get 'books/all' => 'books#index'
     get 'book/:id' => 'books#show', as: 'show_book'
     post ':workshop_id/books/new' => 'books#create'
-  end
-
-  scope module: 'workshops' do 
-    resources :search, only: [:index], controller: 'search'
+    get 'search/results' => 'search#index'
   end
 
   namespace :admin do 

@@ -39,7 +39,7 @@
           <%= link_to "AirbnbLike", home_path, {:class => "brand-logo"} %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <%= form_tag(search_index_path, method: :get) do %>
+              <%= form_tag(workshops_search_results_path, method: :get) do %>
                 <%= text_field_tag :keyword, params[:keyword], :placeholder => "Rechercher un atelier" %>
               <% end %>
             </li>
