@@ -3,7 +3,8 @@ class Workshops::BooksController < BooksController
   before_action :authenticate_user!
 
   def index
-    @books = Workshop.select('*').joins(:books).where(user_id: current_user.id).to_a
+    select = 'workshops.title, books.id, books.start_date, books.end_date'
+    @books = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).all
     
     puts @books.inspect
   end
@@ -22,7 +23,7 @@ class Workshops::BooksController < BooksController
     @book = current_user.books.new(book_params)
     puts "Book : " + @book.inspect
     if @book.save
-      redirect_to :workshops_books
+      redirect_to :workshops_books_all
     else 
       redirect_to :workshops_new_book
     end
