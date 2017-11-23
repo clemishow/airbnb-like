@@ -13,16 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function () {
-  $('.dropdown-trigger').dropdown();
+$(document).on('turbolinks:load', function () {
+  $('.dropdown-button1').dropdown();
+  $('.dropdown-button2').dropdown();
 
   $('.daterange').daterangepicker({
     timePicker: true,
-      timePickerIncrement: 240,
-      timePicker24Hour: true,
-      locale: {
-        format: 'MM/DD/YYYY h'
-      }
+    timePickerIncrement: 240,
+    timePicker24Hour: true,
+    locale: {
+      format: 'MM/DD/YYYY h'
+    }
   });
 
   $('.daterange').on('apply.daterangepicker', (ev, picker) => {
@@ -30,6 +31,3 @@ $(document).ready(function () {
     $('.end__date').val(picker.endDate.format('DD-MM-YYYY'));
   });
 });
-
-
-
