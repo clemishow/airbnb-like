@@ -25,15 +25,19 @@
   <%= @workshop.price %>
 </p>
 
-<div>
-  <strong>Lng:</strong>
-  <%= @workshop.lng %>
-</div>
+<% if @workshop.lat.present? && @workshop.lng.present? %>
+  <div>
+    <strong>Lng:</strong>
+    <span id="lng"><%= @workshop.lng %></span>
+  </div>
 
-<div>
-  <strong>Lat:</strong>
-  <%= @workshop.lat %>
-</div>
+  <div>
+    <strong>Lat:</strong>
+    <span id="lat"><%= @workshop.lat %></span>
+  </div>
+
+  <div id="map"></div>
+<% end %>
 
 <p>
   <strong>Images:</strong>

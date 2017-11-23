@@ -45,15 +45,46 @@ $(document).on('turbolinks:load', () => {
   /**
   * Google Autocomplete 
   */
-  let options = {
-    componentRestrictions: { country: "fr" }
-  };
-  let input = $('.address')[0];
-  let autocomplete = new google.maps.places.Autocomplete(input, options);
+  function googleAutocomplete() {
+    let options = {
+      componentRestrictions: { country: "fr" }
+    };
+    let input = $('.address')[0];
+    let autocomplete = new google.maps.places.Autocomplete(input, options);
 
-  autocomplete.addListener('place_changed', () => {
-    let place = autocomplete.getPlace();
-    $('.lat').val(place.geometry.viewport.b.b);
-    $('.lng').val(place.geometry.viewport.f.f);
-  });
+    autocomplete.addListener('place_changed', () => {
+      let place = autocomplete.getPlace();
+      $('.lat').val(place.geometry.viewport.f.f);
+      $('.lng').val(place.geometry.viewport.b.b);
+    });
+  }
+  if ($('.address').length) {
+    googleAutocomplete();
+  }
+
+  /**
+   * Display an map 
+   */
+  function initMap() {
+    let lat = Number($('#lat').text())
+    let lng = Number($('#lng').text())
+
+    let map = new google.maps.Map($('#map')[0], {
+      center: { 
+        lat: lat, 
+        lng: lng 
+      },
+      zoom: 8
+    });
+
+    let marker = new google.maps.Marker({
+      position: {lat: lat, lng: lng},
+      map: map,
+    });
+  } 
+  console.log($('#lat'));
+  if ($('#lat').length && $('#lng').length) {
+    console.log('there is lat and lng');
+    initMap();
+  }
 });

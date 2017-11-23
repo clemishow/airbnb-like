@@ -43,3 +43,8 @@
  .daterangepicker option.disabled {
    text-decoration: none;
  }
+
+ #map {
+   width: 30vw;
+   height: 30vh;
+ }
