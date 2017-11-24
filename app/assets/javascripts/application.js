@@ -17,14 +17,14 @@
 
 $(document).on('turbolinks:load', () => {
   /**
-  * Dropdown
-  */
+   * Dropdown
+   */
   $('.dropdown-button1').dropdown();
   $('.dropdown-button2').dropdown();
 
   /**
-  * Date ranger picker 
-  */ 
+   * Date ranger picker 
+   */
   function dateRange() {
     var bookStart = moment().add(3, 'days'),
       bookEnd = moment().add(10, 'days');
@@ -33,25 +33,21 @@ $(document).on('turbolinks:load', () => {
       var booksDate = JSON.parse($('#books_data').text());
     }
 
-    function _blockRange(date) {
-      // $.each(booksDate, (key, value) => {
-        if (date.isAfter('23-11-2017') && date.isBefore('30-11-2017')) 
-          return true;
-        
-      // });
-
-      return false;
-    }
-    
     console.log('booksDate', booksDate);
-    console.log(moment('2017-11-23T00:00:00.000Z'));
+    console.log(moment('11-23-2017'));
 
     $('.daterange').daterangepicker({
       timePicker: true,
       timePickerIncrement: 240,
       timePicker24Hour: true,
       isInvalidDate: (date) => {
-        if (date.isAfter(moment('23-11-2017')) && date.isBefore(moment('30-11-2017')))
+        // console.log(date);
+        $.each(booksDate, (key, value) => {
+          console.log(value);
+          if (date.isAfter(moment(value.start)) && date.isBefore(moment(value.end)))
+            return true;
+        });
+        if (date.isAfter(moment('02-01-2018')) && date.isBefore(moment('02-20-2018')))
           return true;
 
         return false;
@@ -73,14 +69,16 @@ $(document).on('turbolinks:load', () => {
   if ($('.daterange').length) {
     dateRange();
   }
-  
+
 
   /**
-  * Google Autocomplete 
-  */
+   * Google Autocomplete 
+   */
   function googleAutocomplete() {
     let options = {
-      componentRestrictions: { country: "fr" }
+      componentRestrictions: {
+        country: "fr"
+      }
     };
     let input = $('.address')[0];
     let autocomplete = new google.maps.places.Autocomplete(input, options);
@@ -104,18 +102,21 @@ $(document).on('turbolinks:load', () => {
     let lng = Number($('#lng').text())
 
     let map = new google.maps.Map($('#map')[0], {
-      center: { 
-        lat: lat, 
-        lng: lng 
+      center: {
+        lat: lat,
+        lng: lng
       },
       zoom: 8
     });
 
     let marker = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
+      position: {
+        lat: lat,
+        lng: lng
+      },
       map: map,
     });
-  } 
+  }
 
   if ($('#lat').length && $('#lng').length) {
     initMap();

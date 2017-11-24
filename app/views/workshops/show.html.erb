@@ -39,14 +39,16 @@
   <div id="map"></div>
 <% end %>
 
-<p>
-  <strong>Images:</strong>
-  <% @workshop.images.each do |image| %>
-    <% if image %>
-      <%= image_tag(image, :class => "responsive-img") %>
+<% if @workshop.images.any? %>
+  <p>
+    <strong>Images:</strong>
+    <% @workshop.images.each do |image| %>
+      <% if image %>
+        <%= image_tag(image, :class => "responsive-img") %>
+      <% end %>
     <% end %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
 <% if current_user %>
   <% if @workshop.user_id === current_user.id %>
