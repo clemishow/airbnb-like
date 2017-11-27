@@ -33,24 +33,29 @@ $(document).on('turbolinks:load', () => {
       var booksDate = JSON.parse($('#books_data').text());
     }
 
-    console.log('booksDate', booksDate);
-    console.log(moment('11-23-2017'));
+    // console.log('booksDate', booksDate, 'lenght', booksDate.length);
+    // console.log(moment('11-23-2017'));
 
     $('.daterange').daterangepicker({
       timePicker: true,
       timePickerIncrement: 240,
       timePicker24Hour: true,
       isInvalidDate: (date) => {
-        // console.log(date);
-        $.each(booksDate, (key, value) => {
-          console.log(value);
-          if (date.isAfter(moment(value.start)) && date.isBefore(moment(value.end)))
+        for (let i = 0; i < booksDate.length; i++) {
+          console.log(booksDate[i]);
+          if (date.isAfter(moment(booksDate[i].start)) && date.isBefore(moment(booksDate[i].end))) {
+            console.log('true');
             return true;
-        });
-        if (date.isAfter(moment('02-01-2018')) && date.isBefore(moment('02-20-2018')))
-          return true;
-
-        return false;
+          }
+        }
+        // $.each(booksDate, (key, value) => {
+        //   console.log('date', date, 'value.start', moment(value.start), 'value.end', moment(value.end));
+        //   if (date.isAfter(moment(value.start)) && date.isBefore(moment(value.end))) {
+        //     console.error('true');
+        //     return true;
+        //   } 
+        //   return false;
+        // });
       },
       minDate: moment().format('L'),
       locale: {
