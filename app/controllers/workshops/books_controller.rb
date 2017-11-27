@@ -18,15 +18,15 @@ class Workshops::BooksController < BooksController
   def new 
     Book.where(workshop_id: @workshop.id).find_each do |book|
       @dates ||= []
-      @dates.push({start: book.end_date, end: book.start_date})
+      @dates.push({start: book.start_date, end: book.end_date})
     end 
     @dates = @dates.to_json
   end 
 
   def create
-    total_price = (params[:start_date].to_i - params[:end_date].to_i) * @workshop.price
+    total_price = (params[:end_date].to_i - params[:start_date].to_i) * @workshop.price
     @book = current_user.books.new(book_params.merge(total_price: total_price))
-    puts "Book : " + @book.inspect
+    puts "New book : " + @book.inspect
     if @book.save
       redirect_to :workshops_books_all
     else 

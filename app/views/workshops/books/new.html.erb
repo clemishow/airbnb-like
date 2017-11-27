@@ -3,11 +3,11 @@
 <%= form_with(model: @book, local: true) do |form| %>
 
   <div class="field">
-    <%= form.hidden_field :end_date, :class => "start__date" %>
+    <%= form.hidden_field :end_date, :class => "end__date" %>
   </div>
 
   <div class="field">
-    <%= form.hidden_field :start_date, :class => "end__date" %>
+    <%= form.hidden_field :start_date, :class => "start__date" %>
   </div>
 
   <%= content_tag :div, @dates, class: "hidden", id: "books_data"%>

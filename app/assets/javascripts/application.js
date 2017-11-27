@@ -31,31 +31,22 @@ $(document).on('turbolinks:load', () => {
 
     if ($('#books_data').length) {
       var booksDate = JSON.parse($('#books_data').text());
+      console.log('booksDate', booksDate);
     }
-
-    // console.log('booksDate', booksDate, 'lenght', booksDate.length);
-    // console.log(moment('11-23-2017'));
 
     $('.daterange').daterangepicker({
       timePicker: true,
       timePickerIncrement: 240,
       timePicker24Hour: true,
       isInvalidDate: (date) => {
-        for (let i = 0; i < booksDate.length; i++) {
-          console.log(booksDate[i]);
-          if (date.isAfter(moment(booksDate[i].start)) && date.isBefore(moment(booksDate[i].end))) {
-            console.log('true');
-            return true;
+        if (booksDate && booksDate.length) {
+          console.log('there is date booked');
+          for (let i = 0; i < booksDate.length; i++) {
+            if (date.isAfter(moment(booksDate[i].start)) && date.isBefore(moment(booksDate[i].end))) {
+              return true;
+            }
           }
         }
-        // $.each(booksDate, (key, value) => {
-        //   console.log('date', date, 'value.start', moment(value.start), 'value.end', moment(value.end));
-        //   if (date.isAfter(moment(value.start)) && date.isBefore(moment(value.end))) {
-        //     console.error('true');
-        //     return true;
-        //   } 
-        //   return false;
-        // });
       },
       minDate: moment().format('L'),
       locale: {
