@@ -1,3 +1,5 @@
 <h1>My book summary</h1>
 
 <h3><%= link_to @workshop.title, workshop_path(@workshop) %></h3>
+
+<%= link_to 'Destroy', workshops_show_book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn red" %>

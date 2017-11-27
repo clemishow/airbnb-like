@@ -34,6 +34,18 @@ class Workshops::BooksController < BooksController
     end
   end 
 
+  def delete
+    @book = Book.find(params[:id])
+    @book.destroy
+    respond_to do |format|
+      format.html { redirect_to workshops_books_all_url, notice: 'Book was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy
+  end
+
   private 
     def find_workshop!
       @workshop = Workshop.where(id: params[:workshop_id]).first
