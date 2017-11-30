@@ -14,41 +14,49 @@
  *= require_self
  */
 
- .container {
-   margin-bottom: 30px;
-   margin-top: 30px;
- }
+.container {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
 
- [type="checkbox"]:not(:checked),
- [type="checkbox"]:checked {
-   position: relative;
-   opacity: 1;
-   margin-right: 15px;
-   pointer-events: auto;
- }
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: relative;
+  opacity: 1;
+  margin-right: 15px;
+  pointer-events: auto;
+}
 
- select {
-   display: inline-block;
- }
+select {
+  display: inline-block;
+}
 
- .dropdown-menu {
-   display: none;
- }
+.dropdown-menu {
+  display: none;
+}
 
- .daterangepicker {
-   background: #2c3e50;
- }
+.daterangepicker {
+  background: #2c3e50;
+}
 
- .daterangepicker td.disabled,
- .daterangepicker option.disabled {
-   text-decoration: none;
- }
+.daterangepicker td.disabled,
+.daterangepicker option.disabled {
+  text-decoration: none;
+}
 
- #map {
-   width: 30vw;
-   height: 30vh;
- }
+#map {
+  width: 30vw;
+  height: 30vh;
+}
 
- .hidden {
-   display: none;
- }
+.hidden {
+  display: none;
+}
+
+footer.page-footer {
+  padding-top: 0;
+}
+
+footer .container {
+  margin: 0 30px;
+}

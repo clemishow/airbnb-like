@@ -26,9 +26,6 @@ $(document).on('turbolinks:load', () => {
    * Date ranger picker 
    */
   function dateRange() {
-    var bookStart = moment().add(3, 'days'),
-      bookEnd = moment().add(10, 'days');
-
     if ($('#books_data').length) {
       var booksDate = JSON.parse($('#books_data').text());
       console.log('booksDate', booksDate);
@@ -59,6 +56,10 @@ $(document).on('turbolinks:load', () => {
     $('.daterange').on('apply.daterangepicker', (ev, picker) => {
       $('.start__date').val(picker.startDate.format('DD-MM-YYYY'));
       $('.end__date').val(picker.endDate.format('DD-MM-YYYY'));
+      let dayPrice = $('.day__price').text();
+      let numberDays = Math.floor((Date.parse(picker.endDate) - Date.parse(picker.startDate)) / 86400000) + 1;
+      $('.total__days').text('Nombre total de jours : ' + String(numberDays));
+      $('.total__price').text('Prix total : ' + String((numberDays) * dayPrice) + ' €');
     });
   }
 
