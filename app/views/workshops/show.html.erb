@@ -11,7 +11,9 @@
 <% end %>
 
  <div class="chip">
-    <%= image_tag @user.avatar.thumb %>
+    <% if @user.avatar.present? %>
+      <%= image_tag @user.avatar.thumb %>
+    <% end %>
     <%= @user.firstname %> <%= @user.lastname %>
   </div>
 
