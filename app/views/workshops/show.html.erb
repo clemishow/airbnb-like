@@ -11,7 +11,7 @@
 <% end %>
 
  <div class="chip">
-    <%# <img src="images/yuna.jpg" alt="User avatar"> %>
+    <%= image_tag @user.avatar.thumb %>
     <%= @user.firstname %> <%= @user.lastname %>
   </div>
 
