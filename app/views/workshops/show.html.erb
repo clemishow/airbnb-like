@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if @workshop.images.any? %>
+  <div class="carousel carousel-slider">
+    <% @workshop.images.each do |image| %>
+      <% if image %>
+        <a class="carousel-item"><%= image_tag(image, :class => "responsive-img") %></a>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @workshop.title %>
@@ -37,17 +47,6 @@
   </div>
 
   <div id="map"></div>
-<% end %>
-
-<% if @workshop.images.any? %>
-  <p>
-    <strong>Images:</strong>
-    <% @workshop.images.each do |image| %>
-      <% if image %>
-        <%= image_tag(image, :class => "responsive-img") %>
-      <% end %>
-    <% end %>
-  </p>
 <% end %>
 
 <% if current_user %>

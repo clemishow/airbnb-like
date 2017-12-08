@@ -118,4 +118,8 @@ $(document).on('turbolinks:load', () => {
   if ($('#lat').length && $('#lng').length) {
     initMap();
   }
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+  });
 });
