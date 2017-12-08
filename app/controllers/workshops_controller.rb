@@ -7,13 +7,6 @@ class WorkshopsController < ApplicationController
     @workshops = Workshop.all
   end
 
-  # GET /workshops/1
-  # GET /workshops/1.json
-  def show
-    @workshop = Workshop.find(params[:id])
-    puts @workshop.inspect
-  end
-
   # GET /workshops/new
   def new
     @workshop = Workshop.new
@@ -70,6 +63,8 @@ class WorkshopsController < ApplicationController
   #   # Use callbacks to share common setup or constraints between actions.
     def set_workshop
       @workshop = Workshop.find(params[:id])
+      @user = User.find(@workshop.user_id)
+      puts 'User' + @user.inspect
     end
 
   #   # Never trust parameters from the scary internet, only allow the white list through.

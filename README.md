@@ -20,7 +20,12 @@ PostreSQL | 10.1+
 
 ## To do 
 
-* Prevent search when there is no keywork and handle no result search
+* Style  : worskshop#show / books#index / books#show / header / user#show / date range picker (3)
+* Fix model book.rb with total_price (1.5)
+* Refactoring code from controller without MySQL (0.25)
+* Book#create : add 
+* Add avatar on Workshop with identity of the owner 
+
 
 ## Problems 
 
