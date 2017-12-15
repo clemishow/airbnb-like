@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'search/results' => 'search#index'
   end
 
-  get 'users/profile' => 'users#show'
+  get 'user/:id/profile' => 'users#show', as: 'user_profile'
 
   namespace :admin do 
     resources :users

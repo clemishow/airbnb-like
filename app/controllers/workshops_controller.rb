@@ -64,6 +64,7 @@ class WorkshopsController < ApplicationController
     def set_workshop
       @workshop = Workshop.find(params[:id])
       @user = User.find(@workshop.user_id)
+      @title = @workshop.title;
       puts 'User' + @user.inspect
     end
 

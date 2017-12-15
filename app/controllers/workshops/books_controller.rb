@@ -14,6 +14,7 @@ class Workshops::BooksController < BooksController
   end
 
   def new 
+    @title = 'Book an workshop'
     Book.where(workshop_id: @workshop.id).find_each do |book|
       @dates ||= []
       @dates.push({start: book.start_date, end: book.end_date})

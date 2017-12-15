@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AirbnbLikePg</title>
+    <title>Artishow <%= '- ' + @title if @title.present? %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
@@ -20,7 +20,7 @@
 
     <%# User dropdown %>
     <ul id="user_submenu" class="dropdown-content">
-      <li><%= link_to 'Profile', users_profile_path %></li>
+      <li><%= link_to 'Profile', user_profile_path(current_user) %></li>
       <li class="divider"></li>
       <li><%= link_to 'My workshops', users_workshops_path %></li>
       <li class="divider"></li>

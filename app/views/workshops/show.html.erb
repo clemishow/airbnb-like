@@ -10,53 +10,57 @@
   </div>
 <% end %>
 
-<div class="container">
-  <div class="chip">
-    <% if @user.avatar.present? %>
-      <%= image_tag @user.avatar.thumb %>
-    <% end %>
-    <%= @user.firstname %> <%= @user.lastname %>
-  </div>
-  
-  <p>
-    <strong>Title:</strong>
-    <%= @workshop.title %>
-  </p>
-  
-  <p>
-    <strong>Description:</strong>
-    <%= @workshop.description %>
-  </p>
-  
-  <p>
-    <strong>Address:</strong>
-    <%= @workshop.address %>
-  </p>
-  
-  <% if @workshop.grade.present? %>
+<div class="row container">
+  <div class="col s8 m10">
+    <div class="chip">
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar.thumb %>
+      <% end %>
+      <%= link_to @user.firstname + ' ' + @user.lastname, user_profile_path(@user) %>
+    </div>
+    
     <p>
-      <strong>Grade:</strong>
-      <%= @workshop.grade %>
+      <strong>Title:</strong>
+      <%= @workshop.title %>
     </p>
-  <% end %>
-  
-  <p>
-    <strong>Price:</strong>
-    <%= @workshop.price %>€ per day
-  </p>
-  
-  <% if @workshop.lat.present? && @workshop.lng.present? %>
-    <span id="lng" class="hidden"><%= @workshop.lng %></span>
-    <span id="lat" class="hidden"><%= @workshop.lat %></span>
-    <div id="map"></div>
-  <% end %>
-  
-  <% if current_user %>
-    <% if @workshop.user_id === current_user.id %>
-      <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= @workshop.description %>
+    </p>
+    
+    <p>
+      <strong>Address:</strong>
+      <%= @workshop.address %>
+    </p>
+    
+    <% if @workshop.grade.present? %>
+      <p>
+        <strong>Grade:</strong>
+        <%= @workshop.grade %>
+      </p>
     <% end %>
-    <% if @workshop.user_id != current_user.id %>
-      <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
+    
+    <p>
+      <strong>Price:</strong>
+      <%= @workshop.price %>€ per day
+    </p>
+    
+    <% if @workshop.lat.present? && @workshop.lng.present? %>
+      <span id="lng" class="hidden"><%= @workshop.lng %></span>
+      <span id="lat" class="hidden"><%= @workshop.lat %></span>
+      <div id="map"></div>
     <% end %>
-  <% end %>
+  </div>
+  <div class="col s4 m2 center">
+  <%# <%= render "workshops/books/new" %>
+    <% if current_user %>
+      <% if @workshop.user_id === current_user.id %>
+        <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
+      <% end %>
+      <% if @workshop.user_id != current_user.id %>
+        <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
