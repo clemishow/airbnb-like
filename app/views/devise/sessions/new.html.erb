@@ -3,8 +3,8 @@
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= content_tag(:div, flash[:error], :class => "card-panel red white-text") if flash[:error] %>
-    <%= content_tag(:div, flash[:notice], :class => "card-panel red white-text") if flash[:notice] %>
-    <%= content_tag(:div, flash[:alert], :class => "card-panel red white-text") if flash[:alert] %>
+    <%= content_tag(:div, flash[:notice], :class => "card-panel green darken-1 white-text") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :class => "card-panel green darken-1 white-text") if flash[:alert] %>
   
     <div class="field">
       <%= f.label :email %><br />
