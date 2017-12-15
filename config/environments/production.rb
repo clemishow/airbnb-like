@@ -32,7 +32,7 @@ Rails.application.configure do
 
   # Confirm email 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'airbnb-like-pg.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'hetic-g2-10.herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.gmail.com',
