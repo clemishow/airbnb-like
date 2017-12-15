@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     delete 'book/:id' => 'books#delete'
     post ':workshop_id/books/new' => 'books#create'
     get 'search/results' => 'search#index'
-
   end
+
+  get 'users/profile' => 'users#show'
 
   namespace :admin do 
     resources :users

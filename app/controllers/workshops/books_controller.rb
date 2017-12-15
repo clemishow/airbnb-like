@@ -11,8 +11,6 @@ class Workshops::BooksController < BooksController
   def show
     @book = Book.find(params[:id])
     @workshop = Workshop.find(@book.workshop_id)
-    puts 'Book : ' + @book.inspect
-    puts 'Workshop : ' + @workshop.inspect
   end
 
   def new 
@@ -24,9 +22,7 @@ class Workshops::BooksController < BooksController
   end 
 
   def create
-    total_price = (params[:end_date].to_i - params[:start_date].to_i) * @workshop.price
-    @book = current_user.books.new(book_params.merge(total_price: total_price))
-    puts "New book : " + @book.inspect
+    @book = current_user.books.new(book_params)
     if @book.save
       redirect_to :workshops_books_all
     else 

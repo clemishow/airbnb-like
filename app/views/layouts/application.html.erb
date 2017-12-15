@@ -20,7 +20,7 @@
 
     <%# User dropdown %>
     <ul id="user_submenu" class="dropdown-content">
-      <li><%= link_to 'Profile', edit_user_registration_path %></li>
+      <li><%= link_to 'Profile', users_profile_path %></li>
       <li class="divider"></li>
       <li><%= link_to 'My workshops', users_workshops_path %></li>
       <li class="divider"></li>
@@ -37,11 +37,11 @@
     </ul>
       <nav>
         <div class="nav-wrapper">
-          <%= link_to "AirbnbLike", home_path, {:class => "brand-logo"} %>
+          <%= link_to "Artishow", home_path, {:class => "brand-logo"} %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
               <%= form_tag(workshops_search_results_path, method: :get) do %>
-                <%= text_field_tag :keyword, params[:keyword], :placeholder => "Rechercher un atelier" %>
+                <%= text_field_tag :keyword, params[:keyword], :placeholder => "Search an workshop" %>
               <% end %>
             </li>
             <% if admin_signed_in? %>
@@ -76,14 +76,12 @@
       </nav>
     </div>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <footer class="page-footer">
       <div class="footer-copyright">
         <div class="container">
-          © 2017 Airbnb like 
+          © 2017 Artishow
         </div>
       </div>
     </footer>

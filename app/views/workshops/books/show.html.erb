@@ -1,5 +1,28 @@
-<h1>My book summary</h1>
-
-<h3><%= link_to @workshop.title, workshop_path(@workshop) %></h3>
-
-<%= link_to 'Destroy', workshops_show_book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn red" %>
+<div class="container">
+  <h1>My book summary</h1>
+  
+  <div>
+    <%= link_to @workshop.title, workshop_path(@workshop) %>
+  </div>
+  
+  <div class="dates">
+    <div class="dates__start">
+      Arrive date : 
+      <%= time_tag(@book.start_date) %>
+    </div>
+     <div class="dates__end">
+      Leave date : 
+      <%= time_tag(@book.end_date) %>
+    </div>
+  </div>
+  
+  <div class="price">
+    Total price : 
+    <%= @book.total_price %>
+  </div>
+  
+  
+  
+  <%= link_to 'Cancel', workshops_show_book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn red" %>
+  
+</div>

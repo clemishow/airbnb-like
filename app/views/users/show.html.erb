@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My profile</h1>  
+  
+  <div class="first__information">
+    <div class="container__image">
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar.thumb %>
+      <% end %>
+    </div>
+    <div class="name">
+      <%= @user.firstname %>  <%= @user.lastname %>
+    </div>
+  </div>
+  
+  <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn' %>
+</div>

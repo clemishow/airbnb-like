@@ -3,7 +3,6 @@ class Users::WorkshopsController < WorkshopsController
 
   def index
     @workshops = Workshop.where(user_id: current_user.id).limit(100)
-    puts @workshops.inspect
   end
 
   def update

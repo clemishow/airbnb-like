@@ -24,6 +24,8 @@ gem 'carrierwave', '~> 1.0.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog-aws' # AWS S3
 
+gem 'pry-rails'
+
 # Users manager
 gem 'devise'
 

@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>My books</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Duration</th>
-      <th>Total price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @books.each do |book| %>
+<div class="container">
+  <%= content_tag(:div, notice, :class => "card-panel green darken-1 white-text") if notice %>
+  
+  <h1>My books</h1>
+  
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to book.title, workshops_show_book_path(book) %></td>
-        <td><%= book.start_date.to_formatted_s(:long)  %></td>
-        <td><%= book.end_date.to_formatted_s(:long)  %></td>
-        <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
-        <td><%= book.total_price.to_s + ' €' %></td>
+        <th>Title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Duration</th>
+        <th>Total price</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    </thead>
+  
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= link_to book.title, workshops_show_book_path(book) %></td>
+          <td><%= book.start_date.to_formatted_s(:long)  %></td>
+          <td><%= book.end_date.to_formatted_s(:long)  %></td>
+          <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
+          <td><%= book.total_price.to_s + ' €' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+</div>
