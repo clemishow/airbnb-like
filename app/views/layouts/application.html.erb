@@ -20,7 +20,7 @@
 
     <%# User dropdown %>
     <ul id="user_submenu" class="dropdown-content">
-      <li><%= link_to 'Profile', user_profile_path(current_user) %></li>
+      <li><%= link_to 'Profile', user_profile_path(current_user) if user_signed_in? %></li>
       <li class="divider"></li>
       <li><%= link_to 'My workshops', users_workshops_path %></li>
       <li class="divider"></li>
