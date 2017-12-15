@@ -1,28 +1,31 @@
-<h1>Book an workshop</h1>
-
-<%= form_with(model: @book, local: true) do |form| %>
-
-  <div class="field">
-    <%= form.hidden_field :end_date, :class => "end__date" %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :start_date, :class => "start__date" %>
-  </div>
-
-  <%= content_tag :div, @dates, class: "hidden", id: "books_data"%>
-
-  <label>Choose a date range</label>
-  <input type="text" class="daterange" value=""/>
-
-  <div class="total__price"></div>
-  <div class="total__days"></div>
-  <div class="day__price hidden">
-    <%= @workshop.price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit({:class => "btn"}) %>
-  </div>
-<% end %>
-
+<div class="container">
+  <h1>Book an workshop</h1>
+  
+  <%= form_with(model: @book, local: true) do |form| %>
+  
+    <div class="field">
+      <%= form.hidden_field :end_date, :class => "end__date" %>
+    </div>
+  
+    <div class="field">
+      <%= form.hidden_field :start_date, :class => "start__date" %>
+    </div>
+  
+    <%= content_tag :div, @dates, class: "hidden", id: "books_data"%>
+  
+    <label>Choose a date range</label>
+    <input type="text" class="daterange" value=""/>
+  
+    <div class="total__price"></div>
+    <div class="total__days"></div>
+    <div class="day__price hidden">
+      <%= @workshop.price %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit({:class => "btn"}) %>
+    </div>
+  <% end %>
+  
+  
+</div>

@@ -1,65 +1,68 @@
-<h1>Editing Workshop</h1>
-
-<%= form_with(model: @workshop, local: true) do |form| %>
-  <% if @workshop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
-
-      <ul>
-      <% @workshop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :workshop_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :workshop_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :workshop_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :grade %>
-    <%= form.text_field :grade, id: :workshop_grade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :workshop_price %>
-  </div>
-
-  <div class="field">
-    <% @workshop.images.each do |image, index| %>
-      <div>
-        <%= image_tag(image.thumb) %>
+<div class="container">
+  <h1>Editing Workshop</h1>
+  
+  <%= form_with(model: @workshop, local: true) do |form| %>
+    <% if @workshop.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+  
+        <ul>
+        <% @workshop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <%= form.file_field :images, multiple: true %>
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
+  
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :workshop_title %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :workshop_description %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :workshop_address %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :grade %>
+      <%= form.text_field :grade, id: :workshop_grade %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, id: :workshop_price %>
+    </div>
+  
+    <div class="field">
+      <% @workshop.images.each do |image, index| %>
+        <div>
+          <%= image_tag(image.thumb) %>
+        </div>
+      <% end %>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <%= form.file_field :images, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
       </div>
     </div>
-  </div>
-  <br>
-  <div class="actions">
-    <%= form.submit({:class => "btn"}) %>
-  </div>
-  <br>
-<% end %>
-
-
-<%= link_to 'Show', @workshop, :class => "btn" %>
+    <br>
+    <div class="actions">
+      <%= form.submit({:class => "btn"}) %>
+    </div>
+    <br>
+  <% end %>
+  
+  
+  <%= link_to 'Show', @workshop, :class => "btn" %>
+  
+</div>

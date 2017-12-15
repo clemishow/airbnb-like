@@ -28,7 +28,6 @@ $(document).on('turbolinks:load', () => {
   function dateRange() {
     if ($('#books_data').length) {
       var booksDate = JSON.parse($('#books_data').text());
-      console.log('booksDate', booksDate);
     }
 
     $('.daterange').daterangepicker({
@@ -82,7 +81,6 @@ $(document).on('turbolinks:load', () => {
 
     autocomplete.addListener('place_changed', () => {
       let place = autocomplete.getPlace();
-      console.log(autocomplete.getPlace());
       $('.lat').val(place.geometry.viewport.f.f);
       $('.lng').val(place.geometry.viewport.b.b);
     });
@@ -103,7 +101,7 @@ $(document).on('turbolinks:load', () => {
         lat: lat,
         lng: lng
       },
-      zoom: 8
+      zoom: 12
     });
 
     let marker = new google.maps.Marker({

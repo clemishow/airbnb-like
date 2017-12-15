@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= content_tag(:div, notice, :class => "card-panel green darken-1 white-text") if notice %>
 
 <% if @workshop.images.any? %>
   <div class="carousel carousel-slider">
@@ -10,57 +10,53 @@
   </div>
 <% end %>
 
- <div class="chip">
+<div class="container">
+  <div class="chip">
     <% if @user.avatar.present? %>
       <%= image_tag @user.avatar.thumb %>
     <% end %>
     <%= @user.firstname %> <%= @user.lastname %>
   </div>
-
-<p>
-  <strong>Title:</strong>
-  <%= @workshop.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @workshop.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @workshop.address %>
-</p>
-
-<p>
-  <strong>Grade:</strong>
-  <%= @workshop.grade %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @workshop.price %>
-</p>
-
-<% if @workshop.lat.present? && @workshop.lng.present? %>
-  <div>
-    <strong>Lng:</strong>
-    <span id="lng"><%= @workshop.lng %></span>
-  </div>
-
-  <div>
-    <strong>Lat:</strong>
-    <span id="lat"><%= @workshop.lat %></span>
-  </div>
-
-  <div id="map"></div>
-<% end %>
-
-<% if current_user %>
-  <% if @workshop.user_id === current_user.id %>
-    <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
+  
+  <p>
+    <strong>Title:</strong>
+    <%= @workshop.title %>
+  </p>
+  
+  <p>
+    <strong>Description:</strong>
+    <%= @workshop.description %>
+  </p>
+  
+  <p>
+    <strong>Address:</strong>
+    <%= @workshop.address %>
+  </p>
+  
+  <% if @workshop.grade.present? %>
+    <p>
+      <strong>Grade:</strong>
+      <%= @workshop.grade %>
+    </p>
   <% end %>
-  <% if @workshop.user_id != current_user.id %>
-    <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
+  
+  <p>
+    <strong>Price:</strong>
+    <%= @workshop.price %>€ per day
+  </p>
+  
+  <% if @workshop.lat.present? && @workshop.lng.present? %>
+    <span id="lng" class="hidden"><%= @workshop.lng %></span>
+    <span id="lat" class="hidden"><%= @workshop.lat %></span>
+    <div id="map"></div>
   <% end %>
-<% end %>
+  
+  <% if current_user %>
+    <% if @workshop.user_id === current_user.id %>
+      <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
+    <% end %>
+    <% if @workshop.user_id != current_user.id %>
+      <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
+    <% end %>
+  <% end %>
+</div>

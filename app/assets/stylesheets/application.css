@@ -45,8 +45,8 @@ select {
 }
 
 #map {
-  width: 30vw;
-  height: 30vh;
+  width: 100%;
+  height: 35vh;
 }
 
 .hidden {

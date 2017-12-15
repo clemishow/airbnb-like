@@ -11,8 +11,6 @@ class Workshops::BooksController < BooksController
   def show
     @book = Book.find(params[:id])
     @workshop = Workshop.find(@book.workshop_id)
-    puts 'Book : ' + @book.inspect
-    puts 'Workshop : ' + @workshop.inspect
   end
 
   def new 

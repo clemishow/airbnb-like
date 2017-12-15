@@ -1,35 +1,38 @@
-<h1>Recherche</h1>
-
-<% if @no_results %>
-  <div class="card-panel">
-    <span class="blue-text text-darken-2"><%= @no_results %></span>
-  </div>
-<% end %>
-
-<% if @no_results.blank? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Grade</th>
-        <th>Price</th>
-        <th>Images</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @workshops.each do |workshop| %>
+<div class="container">
+  <h1>Recherche</h1>
+  
+  <% if @no_results %>
+    <div class="card-panel">
+      <span class="blue-text text-darken-2"><%= @no_results %></span>
+    </div>
+  <% end %>
+  
+  <% if @no_results.blank? %>
+    <table>
+      <thead>
         <tr>
-          <td><%= link_to workshop.title, workshop_path(workshop) %></td>
-          <td><%= workshop.description %></td>
-          <td><%= workshop.address %></td>
-          <td><%= workshop.grade %></td>
-          <td><%= workshop.price %></td>
-          <td><%= workshop.images.count %></td>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Grade</th>
+          <th>Price</th>
+          <th>Images</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+      </thead>
+  
+      <tbody>
+        <% @workshops.each do |workshop| %>
+          <tr>
+            <td><%= link_to workshop.title, workshop_path(workshop) %></td>
+            <td><%= workshop.description %></td>
+            <td><%= workshop.address %></td>
+            <td><%= workshop.grade %></td>
+            <td><%= workshop.price %></td>
+            <td><%= workshop.images.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  
+</div>
