@@ -2,7 +2,7 @@
   <h2>Resend confirmation instructions</h2>
   
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-    <%= content_tag(:div, devise_error_messages!, :class => "card-panel red white-text") if devise_error_messages! %>
+    <%= devise_error_messages!  %>
   
     <div class="field">
       <%= f.label :email %><br />
@@ -10,7 +10,7 @@
     </div>
   
     <div class="actions">
-      <%= f.submit "Resend confirmation instructions" %>
+      <%= f.submit "Resend confirmation instructions", class: "btn" %>
     </div>
   <% end %>
   
