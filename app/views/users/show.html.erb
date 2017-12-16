@@ -1,14 +1,49 @@
-<div class="container">
+<div class="container user__page">
   
   <div class="first__information">
-    <div class="container__image">
-      <% if @user.avatar.present? %>
+    <% if @user.avatar.present? %>
+      <div class="container__image">
         <%= image_tag @user.avatar.thumb %>
-      <% end %>
-    </div>
-    <div class="name">
-      <%= @user.firstname %>  <%= @user.lastname %>
-    </div>
+      </div>
+    <% end %>
+    <% if @user.firstname.present? && @user.lastname.present? %>
+      <div class="name">
+        <%= @user.firstname %>  <strong><%= @user.lastname %></strong>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="second__information">
+    <% if @user.phone_visibility === true %>
+      <div class="phone">
+        <strong>(visible from public) Phone : </strong>
+        <%= @user.phone %>
+      </div>
+    <% elsif @user.phone_visibility === false && current_user.id.to_i == params[:id].to_i %>
+      <div class="phone">
+        <strong>(hidden from public) Phone : </strong>
+        <%= @user.phone %>
+      </div>
+    <% end %>
+
+    <% if @user.description.present? %>
+      <div class="description">
+        <strong>Description : </strong>
+        <div>
+          <%= @user.description %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="book">
+    <strong>Number of bookings : </strong>
+    <%= @book.count %>
+  </div>
+
+  <div class="workshop">
+    <strong>Number of rentals : </strong>
+    <%= @workshop.count %>
   </div>
 
   <% if current_user.id.to_i == params[:id].to_i %>

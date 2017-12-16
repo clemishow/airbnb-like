@@ -74,6 +74,10 @@ footer .container {
   border: solid #fff 2px;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
 .side-nav .container__image img {
   width: 100%;
   height: 100%;

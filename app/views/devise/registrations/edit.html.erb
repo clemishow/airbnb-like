@@ -3,15 +3,16 @@
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
-  
-    <%= image_tag(current_user.avatar.thumb) if current_user.avatar? %>
+
+    <%= image_tag(@user.avatar.medium) if @user.avatar? %>
     <div class="file-field input-field">
       <div class="btn">
         <span>Picture profile</span>
         <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
       </div>
       <div class="file-path-wrapper">
-        <%= f.text_field :avatar, value: current_user.avatar.file.filename, class: 'file-path validate' %>
+        <input class="file-path validate" type="text">
       </div>
     </div>
 
@@ -24,7 +25,22 @@
       <%= f.label :lastname %>
       <%= f.text_field :lastname %>
     </div>
-  
+
+    <div class="field">
+      <%= f.label :phone %>
+      <%= f.number_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :phone_visibility, class: "filled-in" %>
+      <%= f.label :phone_visibility %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>

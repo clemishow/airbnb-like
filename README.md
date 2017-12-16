@@ -31,6 +31,7 @@ PostreSQL | 10.1+
 #### GLOBAL
 * Register an account with a confirmation mail
 * AWS S3 Bucket for images uploaded 
+* Redirect if error 404 or 500
 
 #### USERS
 * Register / login 

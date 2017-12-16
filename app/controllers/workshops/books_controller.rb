@@ -23,7 +23,8 @@ class Workshops::BooksController < BooksController
   end 
 
   def create
-    @book = current_user.books.new(book_params)
+    total_price = (params[:end_date].to_i - params[:start_date].to_i) * @workshop.price
+    @book = current_user.books.new(book_params.merge(total_price: total_price))
     if @book.save
       redirect_to :workshops_books_all
     else 

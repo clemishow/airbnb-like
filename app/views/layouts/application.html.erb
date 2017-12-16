@@ -28,6 +28,7 @@
         <span class="white-text email"> <%= current_user.email %> </span>
       </div>
     </li>
+      <li><%= link_to 'Home', home_path %></li>
       <li><%= link_to 'My profile', user_profile_path(current_user) %></li>
       <li><%= link_to 'My workshops', users_workshops_path %></li>
       <li><%= link_to 'My books', workshops_books_all_path %></li>
@@ -79,7 +80,9 @@
               <li> <%= link_to 'Users', admin_users_path %> </li>
             <% end %>
             <% if user_signed_in? %>
-              <li><li><%= link_to 'Create a workshop', new_users_workshop_path %></li></li>
+              <li>
+                <%= link_to 'Create a workshop', new_users_workshop_path %>
+              </li>
               <li>
                 <a class="dropdown-button2" data-activates="user_submenu">
                   <% if current_user.firstname && current_user.lastname %>

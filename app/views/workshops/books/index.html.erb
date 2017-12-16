@@ -1,32 +1,44 @@
 <div class="container">
+  <h1>My books</h1>
+
   <%= content_tag(:div, notice, :class => "card-panel green darken-1 white-text") if notice %>
   
-  <h1>My books</h1>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Duration</th>
-        <th>Total price</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @books.each do |book| %>
+  <% if @books.empty? %>
+    <div class="card-panel">
+      <span class="blue-text text-darken-2">
+        <div>
+          You have no bookings
+        </div>
+        <br>
+        <div>
+          <%= link_to 'Find an workshop', home_path, class: "btn" %>
+        </div>
+      </span>
+    </div>
+  <% else %>
+    <table>
+      <thead>
         <tr>
-          <td><%= link_to book.title, workshops_show_book_path(book) %></td>
-          <td><%= book.start_date.to_formatted_s(:long)  %></td>
-          <td><%= book.end_date.to_formatted_s(:long)  %></td>
-          <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
-          <td><%= book.total_price.to_s + ' €' %></td>
+          <th>Title</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Duration</th>
+          <th>Total price</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
+      </thead>
+    
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= link_to book.title, workshops_show_book_path(book) %></td>
+            <td><%= book.start_date.to_formatted_s(:long)  %></td>
+            <td><%= book.end_date.to_formatted_s(:long)  %></td>
+            <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
+            <td><%= book.total_price.to_s + ' €' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
   <br>
-  
 </div>

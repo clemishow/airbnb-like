@@ -35,6 +35,8 @@ $(document).on('turbolinks:load', () => {
       var booksDate = JSON.parse($('#books_data').text());
     }
 
+    console.warn('trugger dateranger init');
+
     $('.daterange').daterangepicker({
       timePicker: true,
       timePickerIncrement: 240,
@@ -44,6 +46,7 @@ $(document).on('turbolinks:load', () => {
           console.log('there is date booked');
           for (let i = 0; i < booksDate.length; i++) {
             if (date.isAfter(moment(booksDate[i].start)) && date.isBefore(moment(booksDate[i].end))) {
+              console.log('true');
               return true;
             }
           }
