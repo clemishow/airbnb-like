@@ -26,22 +26,6 @@ PostreSQL | 10.1+
 * Book#create : add 
 * Add avatar on Workshop with identity of the owner 
 
-
-## Problems 
-
-* `routes.rb` :
-```ruby 
-# Getting a error on users/workshops/new submit : No route matches [POST] "/workshops"
-# fixed ?
-resources :workshops, only: [:show, :index] 
-
-# forced to put a scope module instead of a namespace because there is an error when running workshops_controller.rb
-# fixed ?
-scope module: 'workshops' do 
-  resources :search, only: [:index], controller: 'search'
-end
-```
-
 ## Features 
 
 #### GLOBAL
@@ -55,6 +39,7 @@ end
 * See your books 
 * Search an workshop by title
 * See yours rent workshops 
+* User profile 
 
 #### ADMIN
 * Log in admin space

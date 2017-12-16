@@ -64,3 +64,17 @@ footer.page-footer {
 footer .container {
   margin: 0 30px;
 }
+
+.side-nav .container__image {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid #fff 2px;
+}
+
+.side-nav .container__image img {
+  width: 100%;
+  height: 100%;
+}

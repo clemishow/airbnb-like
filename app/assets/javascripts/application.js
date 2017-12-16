@@ -17,6 +17,11 @@
 
 $(document).on('turbolinks:load', () => {
   /**
+   * Side nav
+   */
+  $(".button-collapse").sideNav();
+
+  /**
    * Dropdown
    */
   $('.dropdown-button1').dropdown();
