@@ -2,8 +2,8 @@
   <h1>My books</h1>
 
   <%= content_tag(:div, notice, :class => "card-panel green darken-1 white-text") if notice %>
-  
-  <% if @books.empty? %>
+
+  <% if @books_all.empty? %>
     <div class="card-panel">
       <span class="blue-text text-darken-2">
         <div>
@@ -15,7 +15,17 @@
         </div>
       </span>
     </div>
-  <% else %>
+  <% else %>   
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s4"><a class="active" href="#test1">All bookings</a></li>
+          <li class="tab col s4"><a  href="#test2">Coming bookings</a></li>
+          <li class="tab col s4"><a href="#test3">Previous bookings</a></li>
+        </ul>
+      </div>
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -27,8 +37,32 @@
         </tr>
       </thead>
     
-      <tbody>
-        <% @books.each do |book| %>
+      <tbody id="test1">
+        <% @books_all.each do |book| %>
+          <tr>
+            <td><%= link_to book.title, workshops_show_book_path(book) %></td>
+            <td><%= book.start_date.to_formatted_s(:long)  %></td>
+            <td><%= book.end_date.to_formatted_s(:long)  %></td>
+            <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
+            <td><%= book.total_price.to_s + ' €' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+      <tbody id="test2">
+        <% @books_coming.each do |book| %>
+          <tr>
+            <td><%= link_to book.title, workshops_show_book_path(book) %></td>
+            <td><%= book.start_date.to_formatted_s(:long)  %></td>
+            <td><%= book.end_date.to_formatted_s(:long)  %></td>
+            <td><%= distance_of_time_in_words(book.start_date, book.end_date) %></td>
+            <td><%= book.total_price.to_s + ' €' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+      <tbody id="test3">
+        <% @books_previous.each do |book| %>
           <tr>
             <td><%= link_to book.title, workshops_show_book_path(book) %></td>
             <td><%= book.start_date.to_formatted_s(:long)  %></td>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container workshop__page">
   <h1>New Workshop</h1>
   
   <%= form_with(model: @workshop, local: true) do |form| %>
@@ -17,6 +17,14 @@
     <div class="field">
       <%= form.label :title %>
       <%= form.text_field :title, id: :workshop_title, "data-length" => "60" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :art_types %>
+      <%= form.select(:art_types,
+        [['Peinture', 'Peinture'], ['Plastique', 'Plastique'], ['Sculpture', 'Sculpture'], ['Street art', 'Street art'], ['Modelisme', 'Modelisme']],
+        { },
+        { multiple: true }) %>
     </div>
   
     <div class="field">
@@ -40,7 +48,7 @@
     </div>
   
   
-    <div class="file-field input-field">
+    <div class="field file-field input-field">
       <div class="btn">
         <span>File</span>
         <%= form.file_field :images, multiple: true %>

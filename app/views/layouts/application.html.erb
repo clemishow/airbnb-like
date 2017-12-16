@@ -3,11 +3,11 @@
   <head>
     <title>Artishow <%= '- ' + @title if @title.present? %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
     <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js' %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js' %>
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js' %>
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDnc0ssO0jI_XbACaOYOBaW74m3YDPti_A&libraries=places' %>
@@ -15,30 +15,37 @@
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js' %>
   </head>
 
-<ul id="slide-out" class="side-nav">
-  <% if user_signed_in? %>
-    <li>
-      <div class="user-view">
-        <div class="background blue-grey darken-4">
+  <ul id="slide-out" class="side-nav">
+    <% if user_signed_in? %>
+      <li>
+        <div class="user-view">
+          <div class="background blue-grey darken-4">
+          </div>
+          <div class="container__image">
+            <%= image_tag current_user.avatar.thumb %>
+          </div>
+          <span class="white-text name"> <%= current_user.firstname %> <%= current_user.lastname %> </span>
+          <span class="white-text email"> <%= current_user.email %> </span>
         </div>
-        <div class="container__image">
-          <%= image_tag current_user.avatar.thumb %>
-        </div>
-        <span class="white-text name"> <%= current_user.firstname %> <%= current_user.lastname %> </span>
-        <span class="white-text email"> <%= current_user.email %> </span>
-      </div>
-    </li>
+      </li>
+        <li><%= link_to 'Home', home_path %></li>
+        <li>
+          <%= link_to 'Create a workshop', new_users_workshop_path %>
+        </li>
+        <li><%= link_to 'My profile', user_profile_path(current_user) %></li>
+        <li><%= link_to 'My workshops', users_workshops_path %></li>
+        <li><%= link_to 'My books', workshops_books_all_path %></li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="material-icons">power_settings_new</i> Log out
+        <% end %>
+      </li>
+    <% else %>
       <li><%= link_to 'Home', home_path %></li>
-      <li><%= link_to 'My profile', user_profile_path(current_user) %></li>
-      <li><%= link_to 'My workshops', users_workshops_path %></li>
-      <li><%= link_to 'My books', workshops_books_all_path %></li>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="material-icons">power_settings_new</i> Log out
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+      <li><%= link_to 'Log in', new_user_session_path %></li>
+      <li><%= link_to 'Sign in', new_user_registration_path %></li>
+    <% end %>
+  </ul>
 
   <body>
     <div class="navbar-fixed">

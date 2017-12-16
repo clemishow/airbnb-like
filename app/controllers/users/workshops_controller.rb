@@ -4,10 +4,4 @@ class Users::WorkshopsController < WorkshopsController
   def index
     @workshops = Workshop.where(user_id: current_user.id).limit(100)
   end
-
-  def update
-  end
-
-  def create
-  end
 end

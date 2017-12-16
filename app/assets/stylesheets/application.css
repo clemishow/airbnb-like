@@ -15,8 +15,12 @@
  */
 
 .container {
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+}
+
+.footer-copyright .container {
+  margin: 0 20px !important;
 }
 
 [type="checkbox"]:not(:checked),
@@ -76,6 +80,16 @@ footer .container {
 
 input[type="checkbox"] {
   display: none;
+}
+
+select {
+  display: block !important;
+  height: 6rem !important;
+  margin: 8px 0 20px 0 !important;
+}
+
+input.daterange select {
+  margin: 0 !important;
 }
 
 .side-nav .container__image img {

@@ -128,4 +128,8 @@ $(document).on('turbolinks:load', () => {
   $('.carousel.carousel-slider').carousel({
     fullWidth: true
   });
+
+  $(document).ready(function () {
+    $('ul.tabs').tabs();
+  });
 });

@@ -8,7 +8,8 @@ class Workshop < ApplicationRecord
   validates :title,
         presence: true,
         length: { minimum: 5, too_short: "%{count} characters is the minium"},
-        length: { maximum: 60, too_long: "%{count} characters is the maximum"}
+        length: { maximum: 60, too_long: "%{count} characters is the maximum"},
+        case_sensitive: false
 
   validates :description,
             presence: true

@@ -7,7 +7,7 @@ class Workshops::SearchController < SearchController
       @keyword = params[:keyword]
     end
 
-    @workshops = Workshop.where("title like ?", "%#{@keyword}%").limit(100)
+    @workshops = Workshop.where('title LIKE ?', "%#{@keyword}%").limit(100)
 
     if @workshops.empty? 
       @no_results = 'There is no results for your query'

@@ -2,37 +2,33 @@
   <h1>Recherche</h1>
   
   <% if @no_results %>
-    <div class="card-panel">
-      <span class="blue-text text-darken-2"><%= @no_results %></span>
-    </div>
-  <% end %>
-  
-  <% if @no_results.blank? %>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Address</th>
-          <th>Grade</th>
-          <th>Price</th>
-          <th>Images</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <% @workshops.each do |workshop| %>
-          <tr>
-            <td><%= link_to workshop.title, workshop_path(workshop) %></td>
-            <td><%= workshop.description %></td>
-            <td><%= workshop.address %></td>
-            <td><%= workshop.grade %></td>
-            <td><%= workshop.price %></td>
-            <td><%= workshop.images.count %></td>
-          </tr>
+    <div class="blue-text text-darken-2"><%= @no_results %></div><br>
+    <%= link_to 'Go back to home', home_path, class: "btn" %>
+  <% else %>
+    <div class="row">
+      <% @workshops.each do |workshop| %>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-image">
+              <% if workshop.images.present? %>
+                <%= image_tag workshop.images.first %>
+              <% else %>
+                <%= link_to(image_tag("photo.jpg")) %>
+              <% end %>
+            </div>
+            <div class="card-title">
+              <%= workshop.title %>
+            </div>
+            <div class="card-content">
+              <%= workshop.description %>
+            </div>
+            <div class="card-action">
+              <%= link_to 'See more', workshop_path(workshop) %>
+            </div>
+          </div>
+        </div>
         <% end %>
-      </tbody>
-    </table>
-  <% end %>
-  
+      </div>
+    </div>
+  <% end %>  
 </div>
