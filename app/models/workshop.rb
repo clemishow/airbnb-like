@@ -25,7 +25,7 @@ class Workshop < ApplicationRecord
           presence: true,
           numericality: { greater_than_or_equal_to: 1 }
 
-  validates :images, presence: true
+  validates :images, presence: { message: "You need to add at least one image" }
 
   # Limit size of the image
   private def images_size_validation

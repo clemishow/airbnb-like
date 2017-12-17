@@ -3,7 +3,7 @@
   <div class="first__information">
     <% if @user.avatar.present? %>
       <div class="container__image">
-        <%= image_tag @user.avatar.thumb %>
+        <%= image_tag @user.avatar.medium %>
       </div>
     <% end %>
     <% if @user.firstname.present? && @user.lastname.present? %>

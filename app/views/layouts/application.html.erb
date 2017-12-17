@@ -22,7 +22,7 @@
           <div class="background blue-grey darken-4">
           </div>
           <div class="container__image">
-            <%= image_tag current_user.avatar.thumb %>
+            <%= image_tag current_user.avatar.medium %>
           </div>
           <span class="white-text name"> <%= current_user.firstname %> <%= current_user.lastname %> </span>
           <span class="white-text email"> <%= current_user.email %> </span>
@@ -72,7 +72,7 @@
         <div class="nav-wrapper">
           <%= link_to "Artishow", home_path, {:class => "brand-logo"} %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
+            <li class="search__container">
               <%= form_tag(workshops_search_results_path, method: :get) do %>
                 <%= text_field_tag :keyword, params[:keyword], :placeholder => "Search an workshop" %>
               <% end %>
