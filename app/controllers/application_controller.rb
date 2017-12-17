@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery prepend: true
 
   before_action :account_update_permitted_parameters, :sign_in_permitted_parameters, if: :devise_controller?
 
