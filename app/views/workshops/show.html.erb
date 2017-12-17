@@ -25,7 +25,7 @@
       </p>
 
       <p>
-        <strong>Types:</string>
+        <strong>Types:</strong>
         <% @workshop.art_types.each do |type| %>
           <%= type %>
         <% end %>
@@ -40,6 +40,13 @@
         <strong>Address:</strong>
         <%= @workshop.address %>
       </p>
+
+      <% if @workshop.artists_max.present? %>
+        <p>
+          <strong>Number of artists authorized at the same time :</strong>
+          <%= @workshop.artists_max %>
+        </p>
+      <% end %>
       
       <% if @workshop.grade.present? %>
         <p>

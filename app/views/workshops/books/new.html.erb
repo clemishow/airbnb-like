@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container book__page-new">
   <h1>Book an workshop</h1>
   
   <%= form_with(model: @book, local: true) do |form| %>
@@ -21,6 +21,13 @@
     <div class="day__price hidden">
       <%= @workshop.price %>
     </div>
+
+    <% if @workshop.artists_max.present? %>
+      <div class="field">
+        <label>How many artists ?</label>
+        <%= form.select(:artists, options_for_select(1..@workshop.artists_max)) %>
+      </div>
+    <% end %>
   
     <div class="actions">
       <%= form.submit("Book", {:class => "btn"}) %>

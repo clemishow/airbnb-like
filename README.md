@@ -24,24 +24,29 @@ PostreSQL | 10.1+
 * Fix model book.rb with total_price (1.5)
 * Refactoring code from controller without MySQL (0.25)
 * Book#create : add 
-* Add avatar on Workshop with identity of the owner 
 
-## Features 
+## Fonctionnalités 🇫🇷
 
-#### GLOBAL
-* Register an account with a confirmation mail
-* AWS S3 Bucket for images uploaded 
-* Redirect if error 404 or 500
+#### Global 
+- AWS S3 Bucket pour l'hébergement des images 
+- Gestion des erreurs 404 et 500 
+- Heroku deploy 
+- Menu connecté et non connecté sur mobile et ordinateur 
 
-#### USERS
-* Register / login 
-* Book an workshop
-* Create an workshop 
-* See your books 
-* Search an workshop by title
-* See yours rent workshops 
-* User profile 
+#### Ateliers 
+- Créer un atelier pour le louer avec : titre, types d'art, description, adresse (génère une carte), prix, nombre d'artistes maximum, photo(s)
+- Recherche par titre 
+- Voir les ateliers des utilisateurs 
+- Réserver un atelier (date de début, date de fin, prix total)
 
-#### ADMIN
-* Log in admin space
-* Retrive all users and show detail + delete if necessary 
+#### Utilisateurs
+- Créer un compte avec une confirmation d'email
+- Possibilité d'ajouter ou modifier son profil : une photo, une description, un numéro de téléphone visible ou non sur son profil et mot de passe
+- Retrouver ses réservations (à venir, passées, toutes)
+- Annuler une réservation  
+- Retrouver ses ateliers, pouvoir les modifier, les supprimer et les voir
+- Voir le profil utilisateur de ses amis avec ses informations
+
+#### Admin
+- Espace de connexion
+- Voir la liste de nos utilisateurs et pouvoir les supprimer

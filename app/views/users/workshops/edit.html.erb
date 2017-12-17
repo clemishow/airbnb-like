@@ -38,6 +38,11 @@
       <%= form.label :price %>
       <%= form.text_field :price, id: :workshop_price %>
     </div>
+
+    <div class="field">
+      <label>Number of artists accepted for one rental</label> 
+      <%= form.number_field :artists_max %>
+    </div>
   
     <div class="field">
       <% @workshop.images.each do |image, index| %>

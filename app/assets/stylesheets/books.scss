@@ -1,0 +1,14 @@
+.book__page {
+  // Page new
+  &-new {
+    .field {
+      margin: 20px 0px;
+    }
+  }
+
+  &-show {
+    .field {
+      margin: 20px 0;
+    }
+  }
+}

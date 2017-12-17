@@ -26,6 +26,10 @@ $(document).on('turbolinks:load', () => {
    */
   $('.dropdown-button1').dropdown();
   $('.dropdown-button2').dropdown();
+  if ($('.dropdown-button3').length) {
+    $('.dropdown-button3').dropdown();
+  }
+
 
   /**
    * Date ranger picker 

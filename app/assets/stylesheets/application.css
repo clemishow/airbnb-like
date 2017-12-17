@@ -19,6 +19,16 @@
   margin-bottom: 50px !important;
 }
 
+h1 {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+}
+
+body {
+  min-height: 100vh;
+}
+
 .footer-copyright .container {
   margin: 0 20px !important;
 }
@@ -29,10 +39,6 @@
   opacity: 1;
   margin-right: 15px;
   pointer-events: auto;
-}
-
-select {
-  display: inline-block;
 }
 
 .dropdown-menu {
@@ -67,7 +73,32 @@ footer.page-footer {
 
 footer .container {
   margin: 0 30px;
+  min-height: auto;
 }
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/**
+  SELECT TAG
+**/
+select {
+  display: inline-block !important;
+}
+
+.workshop__page select {
+  height: 6rem !important;
+  margin: 8px 0 20px 0 !important;
+}
+
+input.daterange select {
+  margin: 0 !important;
+}
+
+/**
+  NAV
+**/
 
 .side-nav .container__image {
   margin: auto;
@@ -78,19 +109,6 @@ footer .container {
   border: solid #fff 2px;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
-
-select {
-  display: block !important;
-  height: 6rem !important;
-  margin: 8px 0 20px 0 !important;
-}
-
-input.daterange select {
-  margin: 0 !important;
-}
 
 .side-nav .container__image img {
   width: 100%;

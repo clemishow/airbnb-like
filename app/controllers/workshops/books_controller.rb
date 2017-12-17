@@ -6,7 +6,7 @@ class Workshops::BooksController < BooksController
     select = 'workshops.title, workshops.price, books.id, books.total_price, books.start_date, books.end_date'
     @books_all = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).all
     @books_previous = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).where('end_date < ?', DateTime.now).all
-    @books_coming = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).where('start_date > ?', DateTime.now).all
+    @books_coming = Book.select(select).joins('INNER JOIN workshops ON books.workshop_id = workshops.id').where(user_id: current_user.id).where('end_date > ?', DateTime.now).all
   end
 
   def show
@@ -52,6 +52,6 @@ class Workshops::BooksController < BooksController
     end
 
     def book_params
-      params.permit(:start_date, :end_date, :workshop_id)
+      params.permit(:start_date, :end_date, :artists, :workshop_id)
     end
 end

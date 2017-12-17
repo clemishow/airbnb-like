@@ -38,13 +38,13 @@
             <td><%= workshop.grade %></td>
             <td><%= workshop.price %></td>
             <td><%= workshop.images.count %></td>
-             <ul id="dropdown2" class="dropdown-content">
+             <ul id="dropdown3" class="dropdown-content">
               <li><%= link_to 'Show', workshop_path(workshop) %></li>
               <li><%= link_to 'Edit', edit_users_workshop_path(workshop) %></li>
               <li><%= link_to 'Destroy', users_workshop_path(workshop), method: :delete, data: { confirm: 'Are you sure?' }, :class => "red-text" %></li>
             </ul>
             <td>
-              <a class="btn dropdown-button" href="#!" data-activates="dropdown2">
+              <a class="btn dropdown-button3" data-activates="dropdown3">
                 Actions<i class="material-icons right">arrow_drop_down</i>
               </a>
             </td>

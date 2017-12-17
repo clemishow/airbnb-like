@@ -1,23 +1,24 @@
-<div class="container">
+<div class="container book__page-show">
   <h1>My book summary</h1>
   
-  <div>
+  <div class="field">
+    <strong> Booking of :</strong>
     <%= link_to @workshop.title, workshop_path(@workshop) %>
   </div>
   
-  <div class="dates">
+  <div class="dates field">
     <div class="dates__start">
-      Arrive date : 
+      <strong>Arrive date : </strong>
       <%= time_tag(@book.start_date) %>
     </div>
      <div class="dates__end">
-      Leave date : 
+      <strong>Leave date : </strong>
       <%= time_tag(@book.end_date) %>
     </div>
   </div>
   
-  <div class="price">
-    Total price : 
+  <div class="price field">
+    <strong>Total price : </strong>
     <%= @book.total_price %> €
   </div>
   
