@@ -21,6 +21,12 @@ class Workshop < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 1 }
 
+  validates :artists_max,
+          presence: true,
+          numericality: { greater_than_or_equal_to: 1 }
+
+  validates :images, presence: true
+
   # Limit size of the image
   private def images_size_validation
     return if images.blank?
@@ -31,6 +37,6 @@ class Workshop < ApplicationRecord
 
   private def images_limit_number 
     return if images.blank?
-    errors[:images] << "You can't add more than 2 images" if images.size > 2
+    errors[:images] << "You can't add more than 4 images" if images.size > 4
   end
 end

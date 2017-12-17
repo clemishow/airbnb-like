@@ -11,6 +11,11 @@
     height: 200px;
     position: relative;
     overflow: hidden;
+    img {
+      width: auto !important;
+      height: auto;
+      max-width: 150%;
+    }
     &:after {
       content: "";
       position: absolute;
