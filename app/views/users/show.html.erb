@@ -26,6 +26,11 @@
       </div>
     <% end %>
 
+    <div class="email">
+      <strong>Email : </strong>
+      <%= @user.email %>
+    </div>
+
     <% if @user.description.present? %>
       <div class="description">
         <strong>Description : </strong>
