@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Log in</h2>
+  <h1>Log in</h1>
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= content_tag(:div, flash[:error], :class => "card-panel red white-text") if flash[:error] %>

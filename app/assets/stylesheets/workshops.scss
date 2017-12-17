@@ -6,6 +6,8 @@
   cursor: move;
 }
 
+table 
+
 .card {
   .card-image {
     height: 200px;
@@ -37,4 +39,11 @@
   .field {
     margin: 30px 0;
   } 
+  &-index {
+    table {
+      th {
+        text-transform: uppercase;
+      }
+    }
+  }
 }
