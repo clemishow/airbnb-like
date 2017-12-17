@@ -1,0 +1,267 @@
+/* line 4, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/books.scss */
+.book__page-new .field {
+  margin: 20px 0px;
+}
+/* line 10, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/books.scss */
+.book__page-show .field {
+  margin: 20px 0;
+}
+/* line 2, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/users.scss */
+.user__page .first__information {
+  display: flex;
+  align-items: center;
+}
+/* line 5, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/users.scss */
+.user__page .first__information .container__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+/* line 13, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/users.scss */
+.user__page .first__information .container__image img {
+  width: auto;
+  height: 100%;
+}
+/* line 20, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/users.scss */
+.user__page .book, .user__page .workshop,
+.user__page .phone, .user__page .description {
+  margin: 30px 0;
+}
+/* line 26, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/users.scss */
+.user__page-edit .field {
+  margin: 20px 0;
+}
+/* line 4, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.carousel {
+  max-height: 50vh;
+  cursor: move;
+}
+
+/* line 10, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.card .card-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+/* line 14, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.card .card-image img {
+  width: auto !important;
+  height: auto;
+  max-width: 150%;
+}
+/* line 19, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.card .card-image:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 28, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.card .card-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  padding: 0 !important;
+  margin: 24px !important;
+}
+/* line 37, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.card .card-title {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  z-index: 99;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+/* line 52, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.workshop__page .field {
+  margin: 30px 0;
+}
+/* line 57, /Users/dev/DEV/SITES/airbnb-like-pg/app/assets/stylesheets/workshops.scss */
+.workshop__page-index table th {
+  text-transform: uppercase;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+.container {
+  margin-top: 50px !important;
+  margin-bottom: 100px !important;
+}
+
+h1 {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+}
+
+body {
+  min-height: 100vh;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.search__container form {
+  margin-right: 20px;
+}
+
+#keyword {
+  background: #fff;
+  border-radius: 5px;
+  padding: 0 8px;
+  color: #000;
+}
+
+.footer-copyright .container {
+  margin: 0 20px !important;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: relative;
+  opacity: 1;
+  margin-right: 15px;
+  pointer-events: auto;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.daterangepicker {
+  background: #ffebee;
+}
+
+.daterangepicker .prev,
+.daterangepicker .next {
+  background: #2fa599;
+  position: relative;
+}
+
+.daterangepicker .prev:before,
+.daterangepicker .next:before {
+  content: ">";
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daterangepicker .prev:before {
+  content: "<";
+  position: absolute;
+}
+
+.daterangepicker .next:before {
+  content: ">";
+  position: absolute;
+}
+
+.daterangepicker .prev:hover,
+.daterangepicker .next:hover {
+  background: #2bbbad !important;
+}
+
+.daterangepicker td.disabled,
+.daterangepicker option.disabled {
+  text-decoration: none;
+}
+
+.brand-logo {
+  margin-left: 15px;
+}
+
+#map {
+  width: 100%;
+  height: 35vh;
+}
+
+.hidden {
+  display: none;
+}
+
+footer.page-footer {
+  padding-top: 0;
+}
+
+footer .container {
+  margin: 0 30px;
+  min-height: auto;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/**
+  SELECT TAG
+**/
+select {
+  display: inline-block !important;
+}
+
+.workshop__page select {
+  height: 6rem !important;
+  margin: 8px 0 20px 0 !important;
+}
+
+input.daterange select {
+  margin: 0 !important;
+}
+
+/**
+  NAV
+**/
+
+.side-nav .container__image {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border: solid #fff 2px;
+}
+
+
+.side-nav .container__image img {
+  width: auto;
+  height: 100%;
+}

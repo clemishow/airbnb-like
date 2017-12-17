@@ -16,7 +16,7 @@
 
 .container {
   margin-top: 50px !important;
-  margin-bottom: 50px !important;
+  margin-bottom: 100px !important;
 }
 
 h1 {
@@ -63,7 +63,43 @@ footer {
 }
 
 .daterangepicker {
-  background: #2c3e50;
+  background: #ffebee;
+}
+
+.daterangepicker .prev,
+.daterangepicker .next {
+  background: #2fa599;
+  position: relative;
+}
+
+.daterangepicker .prev:before,
+.daterangepicker .next:before {
+  content: ">";
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.daterangepicker .prev:before {
+  content: "<";
+  position: absolute;
+}
+
+.daterangepicker .next:before {
+  content: ">";
+  position: absolute;
+}
+
+.daterangepicker .prev:hover,
+.daterangepicker .next:hover {
+  background: #2bbbad !important;
 }
 
 .daterangepicker td.disabled,
