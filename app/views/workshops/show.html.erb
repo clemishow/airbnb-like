@@ -67,7 +67,6 @@
       <% end %>
     </div>
     <div class="col s4 m2 center">
-    <%# <%= render "workshops/books/new" %>
       <% if current_user %>
         <% if @workshop.user_id === current_user.id %>
           <%= link_to 'Edit', edit_users_workshop_path(@workshop), :class => "btn" %>
@@ -75,6 +74,8 @@
         <% if @workshop.user_id != current_user.id %>
           <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
         <% end %>
+      <% else  %>
+        <%= link_to 'Book', workshops_new_book_path(@workshop), :class => "btn" %>
       <% end %>
     </div>
   </div>
