@@ -2,14 +2,14 @@
 
 ## Requirements 
 
-Setup environement variable for the S3 AWS Bucket : 
+Setup environement variable : 
 ```shell
 export AWS_ACCESS_KEY_ID='<AWS_ACCESS_KEY_ID>'
 export AWS_SECRET_ACCESS_KEY='<AWS_SECRET_ACCESS_KEY>'
 export AWS_REGION='<AWS_REGION>'
 export AWS_BUCKET='<AWS_BUCKET>'
 export AIRBNB_USER'<AIRBNB_USER>'
-export AIRBNB_PASSWORK'<AIRBNB_PASSWORD>'
+export AIRBNB_PASSWORD'<AIRBNB_PASSWORD>'
 ```
 
 Plugins | Version
@@ -17,13 +17,6 @@ Plugins | Version
 Ruby | 2.3.3+
 Rails | 5.1.4+
 PostreSQL | 10.1+
-
-## To do 
-
-* Style  : worskshop#show / books#index / books#show / header / user#show / date range picker (3)
-* Fix model book.rb with total_price (1.5)
-* Refactoring code from controller without MySQL (0.25)
-* Book#create : add 
 
 ## Fonctionnalités 🇫🇷
 
